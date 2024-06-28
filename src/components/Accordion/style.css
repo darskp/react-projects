@@ -7,79 +7,87 @@
     min-height: 100vh;
     width: 100%;
 
+    .heading {
+        font-size: 24px;
+        color: azure;
+        font-weight: bold;
+        position: relative;
+    }
+
+    .heading::before {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 170px;
+        height: 0.2vh;
+        background-color: #95a5a6;
+    }
+
+    .btn {
+        padding: 1vh 1.5vh;
+        background-color: #fbc531;
+        color: #2c3e50;
+        margin: 10px 0px;
+        outline: none;
+        border: none;
+        -webkit-box-shadow: 10px 9px 23px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 10px 9px 23px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 10px 9px 23px 0px rgba(0, 0, 0, 0.75);
+        cursor: pointer;
+        font-weight: 600;
+        border-radius: 4px;
+    }
+
+    .selection {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 60vh;
+        padding: 2vh 4vh;
+    }
+
+    @media screen and (max-width:600px) {
+        .selection {
+            width: 40vh;
+            border: 1px solid red;
+        }
+    }
+
+    .card {
+        color: black;
+        font-weight: bold;
+        color: white;
+        border-radius: 10px;
+        background-color: #16a085;
+        box-shadow: rgba(9, 124, 53, 0.24) 0px 3px 8px;
+
+    }
+
+    .cardBody {
+        display: flex;
+        padding: 2vh 2.5vh;
+        border-radius: 1px;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 16px;
+        gap: 2vh;
+    }
+
+    .expandBtn {
+        cursor: pointer;
+        transition: all 0.5s ease-out;
+    }
+
+    .cardBody1 {
+        padding: 0.2vh 2.5vh;
+        background-color: rgb(0, 0, 0);
+    }
+
+    .cardBody1 p {
+        color: #ecf0f1;
+        font-size: 14px;
+    }
+
 }
 
-.heading {
-    font-size: 24px;
-    color: azure;
-    font-weight: bold;
-    position: relative;
-}
-
-.heading::before {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 170px;
-    height: 0.2vh;
-    background-color: #95a5a6;
-}
-
-.btn {
-    padding: 1vh 1.5vh;
-    background-color: #fbc531;
-    color: #2c3e50;
-    margin: 10px 0px;
-    outline: none;
-    border: none;
-    -webkit-box-shadow: 10px 9px 23px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 10px 9px 23px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 10px 9px 23px 0px rgba(0, 0, 0, 0.75);
-    cursor: pointer;
-    font-weight: 600;
-    border-radius: 4px;
-}
-
-.selection {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 60vh;
-    padding: 2vh 4vh;
-}
-
-.card {
-    color: black;
-    font-weight: bold;
-    color: white;
-    border-radius: 10px;
-    background-color: #16a085;
-    box-shadow: rgba(9, 124, 53, 0.24) 0px 3px 8px;
-
-}
-
-.cardBody {
-    display: flex;
-    padding: 2vh 2.5vh;
-    border-radius: 1px;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 16px;
-    gap: 2vh;
-}
-
-.expandBtn {
-    cursor: pointer;
-    transition: all 0.5s ease-out;
-}
-
-.cardBody1 {
-    padding: 0.2vh 2.5vh;
-    background-color: rgb(0, 0, 0);
-}
-
-.cardBody1 p {
-    color: #ecf0f1;
-    font-size: 14px;
-}
