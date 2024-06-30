@@ -1,12 +1,12 @@
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import Accordian from './components/Accordion/index.jsx';
-import RandomColor from './components/random-color-generator/index.jsx';
-import Home from './home.jsx';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Accordian from "./components/Accordion/index.jsx";
+import RandomColor from "./components/random-color-generator/index.jsx";
+import Home from "./home.jsx";
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter basename="/react-projects">
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/acordian" element={<Accordian />} />

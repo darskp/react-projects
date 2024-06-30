@@ -1,23 +1,31 @@
-import React, {useState} from 'react';
-import {ColorCodeOptions, constants, generateColorCode} from './util';
-import Generate from './components/Generate.jsx';
-import './style.css';
+import React, {useEffect, useState} from "react";
+import {ColorCodeOptions, constants, generateColorCode} from "./util";
+import Generate from "./components/Generate.jsx";
+import "./style.css";
 
 const RandomColor = () => {
   const [colorModel, setColorModel] = useState(ColorCodeOptions[0]?.value);
   const [generatedCode, setGeneratedCode] = useState({
-    HEX: '#2C3A47',
-    RGB: 'rgb(44, 58, 71)',
+    HEX: null,
+    RGB: null,
   });
 
-  const handleGenerate = () => {
+  const handleGenerate = (colorModel) => {
     const codeValue = generateColorCode(colorModel);
     setGeneratedCode((pre) => {
-      return colorModel == ColorCodeOptions[0].value
+      return colorModel == ColorCodeOptions[0]?.value
         ? {...pre, HEX: codeValue}
         : {...pre, RGB: codeValue};
     });
   };
+
+  useEffect(() => {
+    if (colorModel === ColorCodeOptions[0]?.value) {
+      handleGenerate(colorModel);
+    } else {
+      handleGenerate(colorModel);
+    }
+  }, [colorModel]);
 
   return (
     <div
@@ -50,7 +58,10 @@ const RandomColor = () => {
                 </option>
               ))}
           </select>
-          <button className="generateBtn" onClick={handleGenerate}>
+          <button
+            className="generateBtn"
+            onClick={() => handleGenerate(colorModel)}
+          >
             {constants.GENERATEBUTTONNAME}
           </button>
         </div>

@@ -1,6 +1,7 @@
-import {selectionDetails} from './data';
-import {useState} from 'react';
-import './style.css';
+import {selectionDetails} from "./data";
+import {useState} from "react";
+import "./style.css";
+
 function Accordian() {
   const [selectedSeletion, setSelectedSeletion] = useState([]);
   const [enableMultiSelection, SetEnableMultiSelection] = useState(false);
@@ -30,14 +31,15 @@ function Accordian() {
       <div>
         <button className="btn" onClick={handleChoice}>
           {!enableMultiSelection
-            ? 'Enable Multi Selection'
-            : 'Enable Single Selction'}
+            ? "Enable Multi Selection"
+            : "Enable Single Selction"}
         </button>
       </div>
       <div></div>
       <div className="selection">
-        {selectionDetails
-          ? selectionDetails?.map((item) => (
+        {selectionDetails ? (
+          selectionDetails?.map((item) => {
+            return (
               <div key={item.id}>
                 <div className="card">
                   <div className="cardBody">
@@ -47,14 +49,14 @@ function Accordian() {
                       onClick={() => handleSlection(item?.id)}
                       role="button"
                       onKeyPress={(e) => {
-                        if (e.key == 'Enter' || e.key == ' ') {
+                        if (e.key == "Enter" || e.key == " ") {
                           handleSlection(item?.id);
                         }
                       }}
                       tabIndex={0}
                       aria-pressed={selectedSeletion.includes(item.id)}
                     >
-                      {selectedSeletion.includes(item.id) ? '-' : '+'}
+                      {selectedSeletion.includes(item.id) ? "-" : "+"}
                     </div>
                   </div>
                   {selectedSeletion.includes(item.id) && (
@@ -64,8 +66,13 @@ function Accordian() {
                   )}
                 </div>
               </div>
-            ))
-          : null}
+            );
+          })
+        ) : (
+          <div>
+            <p>No Data Found</p>
+          </div>
+        )}
       </div>
     </div>
   );

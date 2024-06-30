@@ -1,23 +1,23 @@
 export const ColorCodeOptions = [
   {
     id: 1,
-    value: 'RGB',
-    label: 'RGB',
+    value: "HEX",
+    label: "HEX",
   },
   {
     id: 2,
-    value: 'HEX',
-    label: 'HEX',
+    value: "RGB",
+    label: "RGB",
   },
 ];
 
 export const constants = {
-  GENERATEBUTTONNAME: 'Generate',
+  GENERATEBUTTONNAME: "Generate",
 };
 
 export const generateColorCode = (code) => {
-  if (code == ColorCodeOptions[0].value) {
-    let hexColorCode = '#';
+  if (code == ColorCodeOptions[0]?.value) {
+    let hexColorCode = "#";
     for (let i = 0; i < 6; i++) {
       const generateRandomHexcode = Math.floor(Math.random() * 15);
       hexColorCode += generateRandomHexcode.toString(15);
@@ -26,7 +26,7 @@ export const generateColorCode = (code) => {
   } else {
     const rgbCode = Array.from({length: 3}, () =>
       Math.floor(Math.random() * 255),
-    ).join(',');
+    ).join(",");
     return `RGB(${rgbCode})`;
   }
 };

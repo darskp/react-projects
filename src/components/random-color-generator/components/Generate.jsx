@@ -1,5 +1,5 @@
-import React from 'react';
-import {ColorCodeOptions} from '../util';
+import React from "react";
+import {ColorCodeOptions} from "../util";
 
 const Generate = ({colorModel, generatedCode}) => {
   return (
