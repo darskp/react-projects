@@ -11,16 +11,16 @@ const Imageslider = () => {
   const [loading, setLoading] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  console.log("currentIndex", currentIndex, imagesData[currentIndex]);
+  console.log("currentIndex", currentIndex);
 
   const fetchImages = async () => {
     try {
       setLoading(true);
       const response = await fetch(
-        "https://picsum.photos/v2/list?page=1&limit=1",
+        "https://picsum.photos/v2/list?page=1&limit=5",
       );
       const data = await response.json();
-
+      console.log(data);
       if (data) {
         const transformedData = data?.map((item) => {
           return {url: item.download_url, altText: item.author, id: item.id};
@@ -51,7 +51,8 @@ const Imageslider = () => {
   };
 
   const handleNext = () => {
-    if (currentIndex > imagesData.length - 1) {
+    // console.log(currentIndex);
+    if (currentIndex < imagesData.length - 1) {
       setCurrentIndex(currentIndex + 1);
     }
   };
@@ -59,28 +60,51 @@ const Imageslider = () => {
   return (
     <div className="main">
       <div className="main-section">
-        {/* <div>
-                    <button onClick={handlePre}>Previous</button>
-                </div>
-                
-                <div>
-                    <button onClick={handleNext}>Next</button>
-
-                </div> */}
+        <FaArrowAltCircleLeft
+          onClick={handlePre}
+          className={
+            currentIndex > 0
+              ? "arrow arrow-left"
+              : "arrow arrow-left disabledicon"
+          }
+        />
         <div className="image-slider">
-          <div className="left-arrow">
-            <FaArrowAltCircleLeft />
-          </div>
           {imagesData &&
-            imagesData.map((item) => (
-              <div key={item.id} className="each-image">
-                <img src={item.url} alt={item.altText} />
+            imagesData?.map((item, index) => (
+              <div key={index} className="each-image">
+                <img
+                  src={item.url}
+                  alt={item.altText}
+                  className={
+                    currentIndex == index ? "activeSlide" : "inactiveSlide"
+                  }
+                />
               </div>
             ))}
-          <div className="right-arrow">
-            <FaArrowAltCircleLeft />
-          </div>
         </div>
+        <FaArrowAltCircleLeft
+          onClick={handleNext}
+          className={
+            currentIndex < imagesData.length - 1
+              ? "arrow arrow-right"
+              : "arrow arrow-right disabledicon"
+          }
+        />
+        <span className="circle-indicators">
+          {imagesData && imagesData.length
+            ? imagesData.map((_, index) => (
+                <button
+                  key={index}
+                  className={
+                    currentIndex === index
+                      ? "current-indicator"
+                      : "current-indicator inactive-indicator"
+                  }
+                  onClick={() => setCurrentIndex(index)}
+                ></button>
+              ))
+            : null}
+        </span>
       </div>
     </div>
   );
