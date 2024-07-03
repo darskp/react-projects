@@ -59,6 +59,9 @@ const Imageslider = () => {
 
   return (
     <div className="main">
+      <div className="headingContainer">
+        <h3 className="conatinerheading">Image Slider</h3>
+      </div>
       <div className="main-section">
         <FaArrowAltCircleLeft
           onClick={handlePre}
@@ -69,19 +72,16 @@ const Imageslider = () => {
           }
         />
         <div className="image-slider">
-          {imagesData &&
-            imagesData?.map((item, index) => (
-              <div key={index} className="each-image">
-                <img
-                  src={item.url}
-                  alt={item.altText}
-                  className={
-                    currentIndex == index ? "activeSlide" : "inactiveSlide"
-                  }
-                />
-              </div>
-            ))}
+          {imagesData.map((item, index) => (
+            <div
+              key={index}
+              className={`each-image ${currentIndex === index ? "activeSlide" : "inactiveSlide"}`}
+            >
+              <img src={item.url} alt={item.altText} />
+            </div>
+          ))}
         </div>
+
         <FaArrowAltCircleLeft
           onClick={handleNext}
           className={
