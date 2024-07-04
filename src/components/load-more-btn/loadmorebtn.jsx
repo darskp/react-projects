@@ -1,13 +1,25 @@
 import React, {useEffect, useState} from "react";
 import {fetchData} from "./api-config/tableData";
 import "./loadmorebtn.css";
+import {FaArrowUp} from "react-icons/fa";
 
 const LoadMoreBtn = () => {
   const [tableData, setTabledata] = useState([]);
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(40);
   const [skip, setSkip] = useState(0);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [disbleBtn, setDisbaleBtn] = useState(false);
+  const [visible, setVisible] = useState(false);
+
+  const toggleVisible = () => {
+    const scrolled = document.documentElement.scrollTop;
+    if (scrolled > 300) {
+      setVisible(true);
+    } else if (scrolled <= 300) {
+      setVisible(false);
+    }
+  };
 
   const fetchTableData = async (newLimit, newSkip) => {
     setLoading(true);
@@ -19,12 +31,11 @@ const LoadMoreBtn = () => {
         setTabledata((pre) => [...pre, ...products]);
         if (response?.total > skip) {
           const diff = response.total - skip;
-          if (diff >= limit) {
-            setSkip((pre) => pre + 10);
+          if (diff > newLimit) {
+            setSkip((pre) => pre + 20);
             setLimit(newLimit);
           } else {
-            setSkip((pre) => pre + diff);
-            setLimit(newLimit);
+            setDisbaleBtn(true);
           }
         }
       } else {
@@ -47,22 +58,54 @@ const LoadMoreBtn = () => {
     fetchTableData(limit, skip);
   };
 
+  const handleGoToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  window.addEventListener("scroll", toggleVisible);
+
   return (
-    <div className="main-loadmoreBtn">
+    <div className="container loadmoreBtn">
       <h1>Table Data with Load More Button</h1>
       <div className="card-container">
         {tableData.map((item, index) => (
           <div key={index} className="card">
-            <p>{item.title}</p>
-            <p>{item.price}</p>
+            <img
+              src={item.thumbnail}
+              alt={item.title}
+              width={150}
+              height={150}
+            />
+            <h3 style={{margin: "5px 0px"}}>{item.title}</h3>
+            <p>Price : {item.price}</p>
           </div>
         ))}
       </div>
       <div className="btnsection">
-        <button onClick={() => handleLoadMore(limit, skip)} disabled={loading}>
-          {loading ? " Loading..." : "Load More"}
-        </button>
-        {error && <p style={{color: "red"}}>{error}</p>}
+        {error ? (
+          <p style={{color: "red"}}>{error}</p>
+        ) : !disbleBtn && !loading ? (
+          <button
+            onClick={() => handleLoadMore(limit, skip)}
+            disabled={loading}
+          >
+            Load More
+          </button>
+        ) : !disbleBtn ? (
+          <p className="loadmoreText">Loading More Data! Please wait...!</p>
+        ) : (
+          <p className="loadmoreText">No More Products</p>
+        )}
+      </div>
+      <div className="gotoTop">
+        <FaArrowUp
+          className="gotoTopIcon"
+          onClick={handleGoToTop}
+          style={{display: visible ? "inline" : "none"}}
+        />
       </div>
     </div>
   );

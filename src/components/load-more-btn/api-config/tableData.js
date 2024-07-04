@@ -3,7 +3,7 @@ import {masterURL} from "./config";
 export const fetchData = async (limit, skip) => {
   try {
     const response = await fetch(
-      `${masterURL}?limit=${limit}&skip=${skip}&select=title,price`,
+      `${masterURL}?limit=${limit}&skip=${skip}&select=title,price,thumbnail`,
     );
     if (!response.ok) {
       if (response.status == 404) {
@@ -13,7 +13,7 @@ export const fetchData = async (limit, skip) => {
       }
     }
     const data = await response.json();
-    return {products: data.products};
+    return data;
   } catch (err) {
     return {error: err.message};
   }
