@@ -15,6 +15,9 @@ export const fetchData = async (limit, skip) => {
     const data = await response.json();
     return data;
   } catch (err) {
+    if (err.name === "TypeError" && err.message === "Failed to fetch") {
+      return {error: "Please check your internet connection.."};
+    }
     return {error: err.message};
   }
 };

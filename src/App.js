@@ -5,6 +5,7 @@ import Home from "./home.jsx";
 import StarRating from "./components/star-rating/star-rating.jsx";
 import Imageslider from "./components/image-slider/Imageslider.jsx";
 import LoadMoreBtn from "./components/load-more-btn/loadmorebtn.jsx";
+import Treeview from "./components/tree-view-menu/treeview.jsx";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/starrating" element={<StarRating />} />
           <Route path="/imageslider" element={<Imageslider />} />
           <Route path="/loadmoreBtn" element={<LoadMoreBtn />} />
+          <Route path="/treeview" element={<Treeview />} />
         </Routes>
       </BrowserRouter>
     </div>

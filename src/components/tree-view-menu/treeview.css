@@ -1,0 +1,53 @@
+.treeview-main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  background-color: #2f3640;
+
+  .left-container {
+    width: 25%;
+    position: fixed;
+    height: 100vh;
+    background-color: #192a56;
+    color: #f5f6fa;
+    /* padding: 5px 10px; */
+  }
+
+  .menuPlus {
+    display: flex;
+    align-items: center;
+    gap: 0.2vh;
+    justify-content: start;
+    width: 100%;
+
+    h3 {
+      width: 30%;
+    }
+
+    .btn {
+      background-color: white;
+    }
+  }
+
+  .submenuPlus {
+    display: flex;
+    align-items: center;
+    gap: 0.5vh;
+    justify-content: start;
+    width: 100%;
+    margin-left: 10%;
+
+    h3 {
+      width: 30%;
+    }
+
+    .btn {
+      background-color: white;
+    }
+  }
+
+  .content-container {
+    margin-left: 25%;
+    width: 75%;
+  }
+}
