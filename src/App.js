@@ -1,11 +1,13 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Accordian from "./components/Accordion/index.jsx";
-import RandomColor from "./components/random-color-generator/index.jsx";
+import Accordian from "./components/1. Accordion/index.jsx";
+import RandomColor from "./components/2. random-color-generator/index.jsx";
 import Home from "./home.jsx";
-import StarRating from "./components/star-rating/star-rating.jsx";
-import Imageslider from "./components/image-slider/Imageslider.jsx";
-import LoadMoreBtn from "./components/load-more-btn/loadmorebtn.jsx";
-import Treeview from "./components/tree-view-menu/treeview.jsx";
+import StarRating from "./components/3. star-rating/star-rating.jsx";
+import Imageslider from "./components/4. image-slider/Imageslider.jsx";
+import LoadMoreBtn from "./components/5. load-more-btn/loadmorebtn.jsx";
+import Treeview from "./components/6. tree-view-menu/treeview.jsx";
+import QrCode from "./components/7. qr-code-generator/qr.jsx";
+import Darktheme from "./components/8. darktheme/darktheme.jsx";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/imageslider" element={<Imageslider />} />
           <Route path="/loadmoreBtn" element={<LoadMoreBtn />} />
           <Route path="/treeview/*" element={<Treeview />} />
+          <Route path="/qrcode" element={<QrCode />} />
+          <Route path="/darktheme" element={<Darktheme />} />
         </Routes>
       </BrowserRouter>
     </div>

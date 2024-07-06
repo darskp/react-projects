@@ -1,0 +1,15 @@
+[dark-theme="dark"] {
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+[dark-theme="light"] {
+  --background-color: #000000;
+  --text-color: #ffffff;
+}
+
+.theme {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
