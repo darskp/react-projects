@@ -18,7 +18,7 @@ function App() {
           <Route path="/starrating" element={<StarRating />} />
           <Route path="/imageslider" element={<Imageslider />} />
           <Route path="/loadmoreBtn" element={<LoadMoreBtn />} />
-          <Route path="/treeview" element={<Treeview />} />
+          <Route path="/treeview/*" element={<Treeview />} />
         </Routes>
       </BrowserRouter>
     </div>

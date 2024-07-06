@@ -29,7 +29,7 @@ function Accordian() {
         <h3 className="heading"> Multi Selection</h3>
       </div>
       <div>
-        <button className="btn" onClick={handleChoice}>
+        <button className="choicebtn" onClick={handleChoice}>
           {!enableMultiSelection
             ? "Enable Multi Selection"
             : "Enable Single Selction"}

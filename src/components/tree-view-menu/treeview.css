@@ -1,4 +1,4 @@
-.treeview-main {
+#treeview {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -10,14 +10,16 @@
     height: 100vh;
     background-color: #192a56;
     color: #f5f6fa;
-    /* padding: 5px 10px; */
+    padding-left: 3vh;
+    padding-top: 2vh;
   }
 
   .menuPlus {
     display: flex;
     align-items: center;
-    gap: 0.2vh;
+    gap: 0.5vh;
     justify-content: start;
+    overflow: hidden;
     width: 100%;
 
     h3 {
@@ -25,16 +27,27 @@
     }
 
     .btn {
-      background-color: white;
+      padding: 1vh 1.5vh;
+      background-color: #fbc531;
+      color: #2c3e50;
+      margin: 10px 0px;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      border-radius: 4px;
     }
   }
 
   .submenuPlus {
     display: flex;
     align-items: center;
+    flex-direction: column;
     gap: 0.5vh;
     justify-content: start;
     width: 100%;
+    padding: 0;
+    margin: 0;
     margin-left: 10%;
 
     h3 {
@@ -42,12 +55,28 @@
     }
 
     .btn {
-      background-color: white;
+      padding: 1vh 1.5vh;
+      background-color: #fbc531;
+      color: #2c3e50;
+      margin: 10px 0px;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      border-radius: 4px;
     }
   }
 
   .content-container {
-    margin-left: 25%;
+    margin-left: 28%;
     width: 75%;
+    color: white;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 24px;
   }
 }

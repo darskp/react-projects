@@ -9,11 +9,11 @@ export const sideMenu = [
     Children: [
       {
         label: "Details",
-        to: "/details",
+        to: "/profile/details",
         Children: [
           {
             label: "Location",
-            to: "/location",
+            to: "/profile/details/location",
           },
         ],
       },
@@ -25,19 +25,19 @@ export const sideMenu = [
     Children: [
       {
         label: "Account",
-        to: "/account",
+        to: "/settings/account",
       },
       {
         label: "Security",
-        to: "/security",
+        to: "/settings/security",
         Children: [
           {
             label: "Login",
-            to: "/login",
+            to: "/settings/security/login",
           },
           {
             label: "Register",
-            to: "/register",
+            to: "/settings/security/register",
           },
         ],
       },

@@ -2,16 +2,12 @@
 
 import React, {useEffect, useState} from "react";
 import "./style-image-slider.css";
-import ImgOverview from "./ImgOverview";
 import {FaArrowAltCircleLeft} from "react-icons/fa";
-import {FaArrowAltCircleRight} from "react-icons/fa";
 
 const Imageslider = () => {
   const [imagesData, setimagesData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  console.log("currentIndex", currentIndex);
 
   const fetchImages = async () => {
     try {
@@ -20,7 +16,6 @@ const Imageslider = () => {
         "https://picsum.photos/v2/list?page=1&limit=5",
       );
       const data = await response.json();
-      console.log(data);
       if (data) {
         const transformedData = data?.map((item) => {
           return {url: item.download_url, altText: item.author, id: item.id};
@@ -29,7 +24,6 @@ const Imageslider = () => {
         setLoading(false);
       }
     } catch (err) {
-      console.log(err);
       throw new Error(err);
     } finally {
       setLoading(false);
@@ -58,7 +52,7 @@ const Imageslider = () => {
   };
 
   return (
-    <div className="main">
+    <div id="main">
       <div className="headingContainer">
         <h3 className="conatinerheading">Image Slider</h3>
       </div>
