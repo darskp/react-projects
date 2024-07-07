@@ -6,7 +6,7 @@ const ScrollBar = () => {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [scrollPercentage, setScrollPercentage] = useState(0);
-  console.log("scrollPercentage", scrollPercentage);
+
   const fetchData = async () => {
     setLoading(true);
     setErrorMessage("");
@@ -33,6 +33,14 @@ const ScrollBar = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  if (loading) {
+    <div>loading ..</div>;
+  }
+
+  if (errorMessage) {
+    <div>{errorMessage}</div>;
+  }
 
   const handleScrollPercentage = () => {
     const totalHeight =

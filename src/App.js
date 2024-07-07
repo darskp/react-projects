@@ -10,6 +10,7 @@ import QrCode from "./components/7. qr-code-generator/qr.jsx";
 import Darktheme from "./components/8. darktheme/darktheme.jsx";
 import ScrollBar from "./components/9. scroll indicator/index.jsx";
 import Tabs from "./components/10. Tabs/index.jsx";
+import Modal from "./components/11. modal/index.jsx";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/darktheme" element={<Darktheme />} />
           <Route path="/scrollindicator" element={<ScrollBar />} />
           <Route path="/tabs" element={<Tabs />} />
+          <Route path="/modal" element={<Modal />} />
         </Routes>
       </BrowserRouter>
     </div>
