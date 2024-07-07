@@ -8,6 +8,7 @@ import LoadMoreBtn from "./components/5. load-more-btn/loadmorebtn.jsx";
 import Treeview from "./components/6. tree-view-menu/treeview.jsx";
 import QrCode from "./components/7. qr-code-generator/qr.jsx";
 import Darktheme from "./components/8. darktheme/darktheme.jsx";
+import ScrollBar from "./components/9. scroll indicator/index.jsx";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/treeview/*" element={<Treeview />} />
           <Route path="/qrcode" element={<QrCode />} />
           <Route path="/darktheme" element={<Darktheme />} />
+          <Route path="/scrollindicator" element={<ScrollBar />} />
         </Routes>
       </BrowserRouter>
     </div>
