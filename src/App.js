@@ -11,6 +11,7 @@ import Darktheme from "./components/8. darktheme/darktheme.jsx";
 import ScrollBar from "./components/9. scroll indicator/index.jsx";
 import Tabs from "./components/10. Tabs/index.jsx";
 import Modal from "./components/11. modal/index.jsx";
+import GithubProfile from "./components/12.github profile finder/index.jsx";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/scrollindicator" element={<ScrollBar />} />
           <Route path="/tabs" element={<Tabs />} />
           <Route path="/modal" element={<Modal />} />
+          <Route path="/githubprofile" element={<GithubProfile />} />
         </Routes>
       </BrowserRouter>
     </div>

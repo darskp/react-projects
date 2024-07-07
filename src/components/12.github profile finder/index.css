@@ -1,0 +1,28 @@
+.main-container {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  width: 100%;
+  min-height: 100vh;
+  background-color: #2d3436;
+
+  .input {
+    padding: 1vh 1.5vh;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+
+  .btn {
+    padding: 1vh 1.5vh;
+    background-color: #fbc531;
+    color: #2c3e50;
+    margin: 10px 0px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+}
